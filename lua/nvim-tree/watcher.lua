@@ -71,21 +71,22 @@ function Event:start()
     end
   end)
 
-  rc, _, name = self._fs_event:start(self._path, FS_EVENT_FLAGS, event_cb)
-  if rc ~= 0 then
-    local warning = string.format("Could not start the fs_event watcher for path %s : %s", self._path, name)
-    if name == "EMFILE" then
-      M.disable_watchers(
-        warning,
-        "Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Troubleshooting#could-not-start-fs_event-for-path--emfile"
-      )
-    else
-      notify.warn(warning)
-    end
-    return false
-  end
+  --rc, _, name = self._fs_event:start(self._path, FS_EVENT_FLAGS, event_cb)
+  --if rc ~= 0 then
+  --  local warning = string.format("Could not start the fs_event watcher for path %s : %s", self._path, name)
+  --  if name == "EMFILE" then
+  --    M.disable_watchers(
+  --      warning,
+  --      "Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Troubleshooting#could-not-start-fs_event-for-path--emfile"
+  --    )
+  --  else
+  --    notify.warn(warning)
+  --  end
+  --  return false
+  --end
+  return false;
 
-  return true
+  --return true
 end
 
 function Event:add(listener)
